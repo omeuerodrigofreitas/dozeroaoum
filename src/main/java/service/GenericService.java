@@ -5,10 +5,12 @@ import model.BaseModel;
 import javax.persistence.PersistenceException;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 public class GenericService<T extends BaseModel<PK>, PK extends Serializable> extends FactoryEntityManager implements Serializable {
 
     protected GenericService(){
+        getEntityManager();
     }
 
     private Class<T> getType(){
@@ -22,7 +24,6 @@ public class GenericService<T extends BaseModel<PK>, PK extends Serializable> ex
 
     public T save(T objeto) throws PersistenceException {
         try {
-            getEntityManager();
             entityManager.getTransaction().begin();
             if (objeto.getPk() == null) {
                 this.salvar(objeto);
@@ -70,4 +71,12 @@ public class GenericService<T extends BaseModel<PK>, PK extends Serializable> ex
         }
     }
 
+    public T findById(PK id) {
+        return (T)this.entityManager.find(this.getTypeClass(), id);
+    }
+
+    public List<T> findAll() {
+        return entityManager.createQuery("FROM " + getTypeClass().getName())
+                .getResultList();
+    }
 }
