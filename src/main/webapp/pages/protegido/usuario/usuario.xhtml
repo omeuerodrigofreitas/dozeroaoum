@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ptf5="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="../../../resources/templates/master-page.xhtml"
+                xmlns:mens="http://java.sun.com/jsf/composite/components">
+    <ui:define name="content">
+        <h:form class="form-group">
+            <fieldset>
+                <legend><h2><i class="glyphicon glyphicon-book" ></i>  Cadastrar Usuario</h2> </legend>
+                <mens:messages/>
+                <div id="div-dasdos-basicaos" class="row">
+                    <div class="form-group col-xs-12 col-sm-1 col-md-1">
+                        <label>Nome</label>
+                        <h:inputText class="form-control"  value="#{usuarioController.usuario.nome}" />
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-1 col-md-1">
+                        <label>E-mail</label>
+                        <h:inputText class="form-control"  value="#{usuarioController.usuario.email}" />
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-1 col-md-1">
+                        <label>Senha</label>
+                        <h:inputText class="form-control"  value="#{usuarioController.usuario.senha}" />
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-1 col-md-1">
+                        <label>Telefone</label>
+                        <h:inputText class="form-control"  value="#{usuarioController.usuario.telefone}" />
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-1 col-md-1">
+                        <label>Tipo Usuario</label>
+                        <h:inputText class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-xs-12 col-sm-11 col-md-11 ">
+                        <h:commandLink class="btn btn-danger pull-left" onclick=" " >
+                            <i class="glyphicon glyphicon-ban-circle"></i>
+                            Cancelar
+                        </h:commandLink>
+                        <h:commandLink class="btn btn-primary pull-right" action="#{usuarioController.salvar}"  >
+                            <i class="glyphicon glyphicon-floppy-saved"></i>
+                            Salvar
+                        </h:commandLink>
+                    </div>
+                </div>
+            </fieldset>
+        </h:form>
+    </ui:define>
+</ui:composition>

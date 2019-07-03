@@ -23,7 +23,7 @@ import java.util.List;
 @Named(value = "tipoUsuarioController")
 @URLBeanName("tipoUsuarioController")
 @URLMappings(mappings = {
-        @URLMapping(id = "tipo-usuario-nova", pattern = "/novao-tipo-usuario/", viewId = "/pages/protegido/tipo-usuario/tipo-usuario.xhtml"),
+        @URLMapping(id = "tipo-usuario-novo", pattern = "/novo-tipo-usuario/", viewId = "/pages/protegido/tipo-usuario/tipo-usuario.xhtml"),
         @URLMapping(id = "tipo-usuarios", pattern = "/tipos-usuarios/", viewId = "/pages/protegido/tipo-usuario/tipo-usuarios.xhtml"),
         @URLMapping(id = "tipo-usuario-editar", pattern = "/editar-tipo-usuarios/#{tipoUsuarioController.tipoUsuarioPk}/",
                 viewId = "/pages/protegido/tipo-usuario/tipo-usuario.xhtml")
